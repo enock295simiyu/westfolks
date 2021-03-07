@@ -62,6 +62,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -115,9 +116,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
-AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
-
+LOGIN_URL='/account/access/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
