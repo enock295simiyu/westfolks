@@ -111,3 +111,20 @@ class ProfileUpdate(View):
         profile.professional_specialist = professional_specialist
         profile.save()
         return redirect('home')
+
+
+@method_decorator(login_required, name='get')
+@method_decorator(login_required, name='post')
+class AccountReset(View):
+    def get(self,request):
+        return render(request,'account/reset/index.html')
+    def post(self,request):
+        password1=request.POST.get('form_fields[password1]')
+        password2=request.POST.get('form_fields[password2]')
+        if password2!=password1:
+            return redirect('reset-password')
+        else:
+            user=User.objects.get(pk=request.user.pk)
+            user.password=password1
+            user.save()
+            return redirect('home')
