@@ -24,6 +24,8 @@
 <link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="westfolks &raquo; Feed" href="https://en.westfolks.com/feed/" />
 <link rel="alternate" type="application/rss+xml" title="westfolks &raquo; Comments Feed" href="https://en.westfolks.com/comments/feed/" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 		<script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/en.westfolks.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6.2"}};
 			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -146,7 +148,12 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 								<div class="elementor-element elementor-element-52656b17 elementor-widget elementor-widget-image" data-id="52656b17" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-image">
-										<img src="https://en.westfolks.com/wp-content/uploads/2021/03/12.png" title="12" alt="12" />											</div>
+						{% if profile.profile_image %}
+						<img src="{{profile.profile_image.url}}" alt="profile image">
+						{% else %}
+										<img src="https://en.westfolks.com/wp-content/uploads/2021/03/12.png" title="12" alt="12" />
+					{% endif %}
+					</div>
 				</div>
 				</div>
 					</div>
@@ -155,23 +162,32 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-37f28ca9 elementor-widget elementor-widget-heading" data-id="37f28ca9" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">FirstName LastName</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"> {{profile.first_name}}  {{profile.last_name}}</h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-42db8527 elementor-widget elementor-widget-heading" data-id="42db8527" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h6 class="elementor-heading-title elementor-size-default">Profile Headline</h6>		</div>
+			<h6 class="elementor-heading-title elementor-size-default">{{profile.profile_headline}}</h6>		</div>
 				</div>
+								<div class="elementor-element elementor-element-42db8527 elementor-widget elementor-widget-heading" data-id="42db8527" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default">Current website: {{profile.current_website}}</h6>		</div>
+				</div>
+				<div class="elementor-element elementor-element-42db8527 elementor-widget elementor-widget-heading" data-id="42db8527" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default">Country: {{profile.current_country}}</h6>		</div>
+				</div>
+
 				<div class="elementor-element elementor-element-c8e25bc elementor-icon-list--layout-inline elementor-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="c8e25bc" data-element_type="widget" data-widget_type="icon-list.default">
 				<div class="elementor-widget-container">
 					<ul class="elementor-icon-list-items elementor-inline-items">
 							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Current Employer</span>
+										<span class="elementor-icon-list-text">Employer: {{profile.current_employer}}</span>
 									</li>
 								<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">City</span>
+										<span class="elementor-icon-list-text">City: {{profile.current_city}}</span>
 									</li>
 								<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">State</span>
+										<span class="elementor-icon-list-text">State: {{profile.current_state}}</span>
 									</li>
 						</ul>
 				</div>
@@ -193,7 +209,7 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 				<div class="elementor-widget-container">
 					<ul class="elementor-icon-list-items elementor-inline-items">
 							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Profile description here ...</span>
+										<span class="elementor-icon-list-text">{{profile.profile_description}}</span>
 									</li>
 						</ul>
 				</div>
@@ -592,68 +608,6 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 		</section>
 				</div>
 		</div>
-		
-<script type="text/template" id="tmpl-elementor-templates-modal__header">
-	<div class="elementor-templates-modal__header__logo-area"></div>
-	<div class="elementor-templates-modal__header__menu-area"></div>
-	<div class="elementor-templates-modal__header__items-area">
-		<# if ( closeType ) { #>
-			<div class="elementor-templates-modal__header__close elementor-templates-modal__header__close--{{{ closeType }}} elementor-templates-modal__header__item">
-				<# if ( 'skip' === closeType ) { #>
-				<span>Skip</span>
-				<# } #>
-				<i class="eicon-close" aria-hidden="true" title="Close"></i>
-				<span class="elementor-screen-only">Close</span>
-			</div>
-		<# } #>
-		<div id="elementor-template-library-header-tools"></div>
-	</div>
-</script>
-
-<script type="text/template" id="tmpl-elementor-templates-modal__header__logo">
-	<span class="elementor-templates-modal__header__logo__icon-wrapper e-logo-wrapper">
-		<i class="eicon-elementor"></i>
-	</span>
-	<span class="elementor-templates-modal__header__logo__title">{{{ title }}}</span>
-</script>
-<script type="text/template" id="tmpl-elementor-finder">
-	<div id="elementor-finder__search">
-		<i class="eicon-search"></i>
-		<input id="elementor-finder__search__input" placeholder="Type to find anything in Elementor">
-	</div>
-	<div id="elementor-finder__content"></div>
-</script>
-
-<script type="text/template" id="tmpl-elementor-finder-results-container">
-	<div id="elementor-finder__no-results">No Results Found</div>
-	<div id="elementor-finder__results"></div>
-</script>
-
-<script type="text/template" id="tmpl-elementor-finder__results__category">
-	<div class="elementor-finder__results__category__title">{{{ title }}}</div>
-	<div class="elementor-finder__results__category__items"></div>
-</script>
-
-<script type="text/template" id="tmpl-elementor-finder__results__item">
-	<a href="{{ url }}" class="elementor-finder__results__item__link">
-		<div class="elementor-finder__results__item__icon">
-			<i class="eicon-{{{ icon }}}"></i>
-		</div>
-		<div class="elementor-finder__results__item__title">{{{ title }}}</div>
-		<# if ( description ) { #>
-			<div class="elementor-finder__results__item__description">- {{{ description }}}</div>
-		<# } #>
-	</a>
-	<# if ( actions.length ) { #>
-		<div class="elementor-finder__results__item__actions">
-		<# jQuery.each( actions, function() { #>
-			<a class="elementor-finder__results__item__action elementor-finder__results__item__action--{{ this.name }}" href="{{ this.url }}" target="_blank">
-				<i class="eicon-{{{ this.icon }}}"></i>
-			</a>
-		<# } ); #>
-		</div>
-	<# } #>
-</script>
 <script type='text/javascript' src='https://en.westfolks.com/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1' id='jquery-ui-core-js'></script>
 <script type='text/javascript' src='https://en.westfolks.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.12.1' id='jquery-ui-mouse-js'></script>
 <script type='text/javascript' src='https://en.westfolks.com/wp-includes/js/jquery/ui/draggable.min.js?ver=1.12.1' id='jquery-ui-draggable-js'></script>
