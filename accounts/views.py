@@ -136,3 +136,8 @@ class AccountView(View):
     def get(self, request):
         profile=Profile.objects.get(user__pk=request.user.pk)
         return render(request, 'account/index.html',{'profile':profile})
+
+@method_decorator(login_required, name='get')
+class AccountPage(View):
+    def get(self,request):
+        return render(request,'account/index.html')
