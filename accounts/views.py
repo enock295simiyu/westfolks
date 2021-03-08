@@ -141,3 +141,8 @@ class AccountView(View):
 class AccountPage(View):
     def get(self,request):
         return render(request,'account/index.html')
+
+@method_decorator(login_required, name='get')
+class Crawl(View):
+    def get(self,request):
+        return render(request, 'account/index.html')
