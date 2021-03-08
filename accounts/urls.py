@@ -8,7 +8,7 @@ urlpatterns=[
     path('update/', views.ProfileUpdate.as_view(), name='profile-update'),
     path('reset/', views.AccountReset.as_view(), name='reset-password'),
     path('create/', views.AccountCreateForm.as_view(), name='signup'),
-    path('page/', views.AccountPage.as_view(), name='signup'),
-    path('crawl/', views.Crawl.as_view(), name='signup'),
+    path('page/', views.AccountPage.as_view(), name='account_page'),
+    path('crawl/', views.Crawl.as_view(), name='company_crawl'),
 
 ]
