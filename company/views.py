@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
 from django.views.generic.base import View
 
+from accounts.models import Profile
 from company.models import Company
 
 
@@ -46,5 +47,14 @@ class CreateCompany(View):
 @method_decorator(login_required, name='get')
 class Companies(View):
     def get(self, request):
+        profile = Profile.objects.get(user__pk=request.user.pk)
         companies = Company.objects.filter(created_by=request.user)[:3]
-        return render(request, 'company/index.html', {'companies': companies})
+        return render(request, 'company/index.html', {'companies': companies, 'profile': profile})
+
+
+@method_decorator(login_required, name='get')
+class CompanyView(View):
+    def get(self, request, slug):
+        profile = Profile.objects.get(user__pk=request.user.pk)
+        company = Company.objects.get(slug=slug)
+        return render(request, 'company/company/index.html', {'company': company})

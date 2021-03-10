@@ -53,7 +53,7 @@ class Login(View):
 
         user = authenticate_user(email, password)
         context = {}
-        print('this is the value of user', user)
+
         if user is not None:
             login(request, user)
             return redirect(self.request.GET.get('next', 'home'))
