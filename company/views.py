@@ -17,7 +17,6 @@ class CreateCompany(View):
         return render(request, 'company/create/index.html')
 
     def post(self, request):
-
         company_name = request.POST['form_fields[first_name]']
         company_url = request.POST['form_fields[last_name]']
         company = Company()
@@ -35,9 +34,17 @@ class CreateCompany(View):
 
     def post(self, request):
         company_name = request.POST['form_fields[first_name]']
-        company_url = request.POST['form_fields[last_name]']
+
         company = Company()
+        company.created_by = request.user
         company.name = company_name
-        company.url = company_url
+
         company.save()
-        return redirect('company_create')
+        return redirect('companies_page')
+
+
+@method_decorator(login_required, name='get')
+class Companies(View):
+    def get(self, request):
+        companies = Company.objects.filter(created_by=request.user)[:3]
+        return render(request, 'company/index.html', {'companies': companies})
