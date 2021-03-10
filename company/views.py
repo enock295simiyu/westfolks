@@ -24,7 +24,7 @@ class CreateCompany(View):
         company.name = company_name
         company.url = company_url
         company.save()
-        return redirect('company_create')
+        return redirect('companies_page')
 
 
 @method_decorator(login_required, name='get')
