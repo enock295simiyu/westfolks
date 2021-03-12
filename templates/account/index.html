@@ -236,6 +236,7 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 		</section>
 				<section class="elementor-section elementor-inner-section elementor-element elementor-element-4219bc60 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4219bc60" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-default">
+							{% for company in companies %}
 					<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-ac07a46" data-id="ac07a46" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-6be36ce1 elementor-widget elementor-widget-image" data-id="6be36ce1" data-element_type="widget" data-widget_type="image.default">
@@ -248,88 +249,14 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 				<div class="elementor-widget-container">
 					<ul class="elementor-icon-list-items elementor-inline-items">
 							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Specialty1</span>
+										<span class="elementor-icon-list-text"><a href="{% url 'company' company.slug %}">{{company.name}}</a></span>
 									</li>
 						</ul>
 				</div>
 				</div>
 					</div>
 		</div>
-				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-2078bb52" data-id="2078bb52" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-6ac1447 elementor-widget elementor-widget-image" data-id="6ac1447" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image">
-										<img width="800" height="800" src="https://en.westfolks.com/wp-content/uploads/2021/03/10.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://en.westfolks.com/wp-content/uploads/2021/03/10.png 800w, https://en.westfolks.com/wp-content/uploads/2021/03/10-300x300.png 300w, https://en.westfolks.com/wp-content/uploads/2021/03/10-150x150.png 150w, https://en.westfolks.com/wp-content/uploads/2021/03/10-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" />											</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-7ce6539f elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="7ce6539f" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Specialty2</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-758ccd75" data-id="758ccd75" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-553e27e9 elementor-widget elementor-widget-image" data-id="553e27e9" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image">
-										<img width="800" height="800" src="https://en.westfolks.com/wp-content/uploads/2021/03/9.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://en.westfolks.com/wp-content/uploads/2021/03/9.png 800w, https://en.westfolks.com/wp-content/uploads/2021/03/9-300x300.png 300w, https://en.westfolks.com/wp-content/uploads/2021/03/9-150x150.png 150w, https://en.westfolks.com/wp-content/uploads/2021/03/9-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" />											</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-5266aebf elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5266aebf" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Specialty3</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5487c340" data-id="5487c340" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-2701d9ab elementor-widget elementor-widget-image" data-id="2701d9ab" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image">
-										<img width="800" height="800" src="https://en.westfolks.com/wp-content/uploads/2021/03/8.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://en.westfolks.com/wp-content/uploads/2021/03/8.png 800w, https://en.westfolks.com/wp-content/uploads/2021/03/8-300x300.png 300w, https://en.westfolks.com/wp-content/uploads/2021/03/8-150x150.png 150w, https://en.westfolks.com/wp-content/uploads/2021/03/8-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" />											</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-2be666ad elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="2be666ad" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Specialty4</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5b028328" data-id="5b028328" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-7e5a91df elementor-widget elementor-widget-image" data-id="7e5a91df" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image">
-										<img width="800" height="800" src="https://en.westfolks.com/wp-content/uploads/2021/03/12.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://en.westfolks.com/wp-content/uploads/2021/03/12.png 800w, https://en.westfolks.com/wp-content/uploads/2021/03/12-300x300.png 300w, https://en.westfolks.com/wp-content/uploads/2021/03/12-150x150.png 150w, https://en.westfolks.com/wp-content/uploads/2021/03/12-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px" />											</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-6b3e4ff0 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6b3e4ff0" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Specialty5</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-					</div>
+							{% endfor %}
 		</div>
 							</div>
 		</section>
@@ -351,6 +278,7 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 		</section>
 				<section class="elementor-section elementor-inner-section elementor-element elementor-element-1a5c961f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1a5c961f" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-default">
+							{% for product in products %}
 					<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-85b8a89" data-id="85b8a89" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-4ad603ac elementor-widget elementor-widget-image" data-id="4ad603ac" data-element_type="widget" data-widget_type="image.default">
@@ -363,7 +291,7 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 				<div class="elementor-widget-container">
 					<ul class="elementor-icon-list-items elementor-inline-items">
 							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Service Name1</span>
+								<span class="elementor-icon-list-text"><a href="{% url 'product' product.slug %}">{{product.name}}</a></span>
 									</li>
 						</ul>
 				</div>
@@ -372,124 +300,14 @@ var elementorAppProConfig = {"baseUrl":"https:\/\/en.westfolks.com\/wp-content\/
 				<div class="elementor-widget-container">
 					<ul class="elementor-icon-list-items elementor-inline-items">
 							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">500 Specialists</span>
+										<span class="elementor-icon-list-text">Created: {{product.created}}</span>
 									</li>
 						</ul>
 				</div>
 				</div>
 					</div>
 		</div>
-				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-1ebee375" data-id="1ebee375" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-6b41d33e elementor-widget elementor-widget-image" data-id="6b41d33e" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image">
-										<img width="300" height="300" src="https://en.westfolks.com/wp-content/uploads/2021/03/9-300x300.png" class="attachment-medium size-medium" alt="" loading="lazy" srcset="https://en.westfolks.com/wp-content/uploads/2021/03/9-300x300.png 300w, https://en.westfolks.com/wp-content/uploads/2021/03/9-150x150.png 150w, https://en.westfolks.com/wp-content/uploads/2021/03/9-768x768.png 768w, https://en.westfolks.com/wp-content/uploads/2021/03/9.png 800w" sizes="(max-width: 300px) 100vw, 300px" />											</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-1647439f elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="1647439f" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Service Name2</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-5ebbfaa0 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5ebbfaa0" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">500 Specialists</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-2a8380fc" data-id="2a8380fc" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-45c283b6 elementor-widget elementor-widget-image" data-id="45c283b6" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image">
-										<img width="300" height="300" src="https://en.westfolks.com/wp-content/uploads/2021/03/10-300x300.png" class="attachment-medium size-medium" alt="" loading="lazy" srcset="https://en.westfolks.com/wp-content/uploads/2021/03/10-300x300.png 300w, https://en.westfolks.com/wp-content/uploads/2021/03/10-150x150.png 150w, https://en.westfolks.com/wp-content/uploads/2021/03/10-768x768.png 768w, https://en.westfolks.com/wp-content/uploads/2021/03/10.png 800w" sizes="(max-width: 300px) 100vw, 300px" />											</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-5b92cda4 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5b92cda4" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Service Name3</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-484aa2b2 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="484aa2b2" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">500 Specialists</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-73f0010f" data-id="73f0010f" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-39349c90 elementor-widget elementor-widget-image" data-id="39349c90" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image">
-										<img width="300" height="300" src="https://en.westfolks.com/wp-content/uploads/2021/03/11-300x300.png" class="attachment-medium size-medium" alt="" loading="lazy" srcset="https://en.westfolks.com/wp-content/uploads/2021/03/11-300x300.png 300w, https://en.westfolks.com/wp-content/uploads/2021/03/11-150x150.png 150w, https://en.westfolks.com/wp-content/uploads/2021/03/11-768x768.png 768w, https://en.westfolks.com/wp-content/uploads/2021/03/11.png 800w" sizes="(max-width: 300px) 100vw, 300px" />											</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-46b0c1cf elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="46b0c1cf" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Service Name4</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-44916942 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="44916942" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">500 Specialists</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-67c1337" data-id="67c1337" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-6703bdf9 elementor-widget elementor-widget-image" data-id="6703bdf9" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-image">
-										<img width="300" height="300" src="https://en.westfolks.com/wp-content/uploads/2021/03/12-300x300.png" class="attachment-medium size-medium" alt="" loading="lazy" srcset="https://en.westfolks.com/wp-content/uploads/2021/03/12-300x300.png 300w, https://en.westfolks.com/wp-content/uploads/2021/03/12-150x150.png 150w, https://en.westfolks.com/wp-content/uploads/2021/03/12-768x768.png 768w, https://en.westfolks.com/wp-content/uploads/2021/03/12.png 800w" sizes="(max-width: 300px) 100vw, 300px" />											</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-42345cb6 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="42345cb6" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">Service Name5</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-7dddd14a elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="7dddd14a" data-element_type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-					<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-										<span class="elementor-icon-list-text">500 Specialists</span>
-									</li>
-						</ul>
-				</div>
-				</div>
-					</div>
+							{% endfor %}
 		</div>
 							</div>
 		</section>

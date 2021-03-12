@@ -10,6 +10,8 @@ from django.views.generic.base import View
 
 from accounts.backends import EmailBackend
 from accounts.models import Profile
+from company.models import Company
+from products.models import Product
 
 
 def authenticate_user(email, password):
@@ -134,15 +136,19 @@ class AccountReset(View):
 @method_decorator(login_required, name='get')
 class AccountView(View):
     def get(self, request):
-        profile=Profile.objects.get(user__pk=request.user.pk)
-        return render(request, 'account/index.html',{'profile':profile})
+        profile = Profile.objects.get(user__pk=request.user.pk)
+        return render(request, 'account/index.html', {'profile': profile})
+
 
 @method_decorator(login_required, name='get')
 class AccountPage(View):
-    def get(self,request):
-        return render(request,'account/index.html')
+    def get(self, request):
+        companies = Company.objects.filter(created_by=request.user).order_by('-id')[:5]
+        products = Product.objects.filter(company__created_by=request.user).order_by('-id')[:5]
+        return render(request, 'account/index.html', {'companies': companies, 'products': products})
+
 
 @method_decorator(login_required, name='get')
 class Crawl(View):
-    def get(self,request):
+    def get(self, request):
         return render(request, 'account/index.html')
