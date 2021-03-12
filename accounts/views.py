@@ -155,4 +155,8 @@ class AccountPage(View):
 @method_decorator(login_required, name='get')
 class Crawl(View):
     def get(self, request):
-        return render(request, 'account/index.html')
+        profile = Profile.objects.get(user=request.user)
+        companies = Company.objects.filter(created_by=request.user).order_by('-id')[:5]
+        products = Product.objects.filter(company__created_by=request.user).order_by('-id')[:5]
+        return render(request, 'account/crawl/index.html',
+                      {'companies': companies, 'products': products, 'profile': profile})
