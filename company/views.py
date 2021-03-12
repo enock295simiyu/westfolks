@@ -9,6 +9,7 @@ from django.views.generic.base import View
 
 from accounts.models import Profile
 from company.models import Company
+from products.models import Product
 
 
 @method_decorator(login_required, name='get')
@@ -27,7 +28,6 @@ class CreateCompany(View):
         return redirect('companies_page')
 
 
-
 @method_decorator(login_required, name='get')
 @method_decorator(login_required, name='post')
 class UpdateCompany(View):
@@ -42,6 +42,7 @@ class UpdateCompany(View):
         company.url = company_url
         company.save()
         return redirect('companies_page')
+
 
 @method_decorator(login_required, name='get')
 @method_decorator(login_required, name='post')
@@ -73,4 +74,6 @@ class CompanyView(View):
     def get(self, request, slug):
         profile = Profile.objects.get(user__pk=request.user.pk)
         company = Company.objects.get(slug=slug)
-        return render(request, 'company/company/index.html', {'company': company})
+        products = Product.objects.filter(company=company).order_by('-id')[:3]
+        return render(request, 'company/company/index.html',
+                      {'company': company, 'profile': profile, 'products': products})
