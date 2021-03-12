@@ -137,15 +137,19 @@ class AccountReset(View):
 class AccountView(View):
     def get(self, request):
         profile = Profile.objects.get(user__pk=request.user.pk)
-        return render(request, 'account/index.html', {'profile': profile})
+        companies = Company.objects.filter(created_by=request.user).order_by('-id')[:4]
+        products = Product.objects.filter(company__created_by=request.user).order_by('-id')[:4]
+        return render(request, 'account/index.html', {'profile': profile, 'companies': companies, 'products': products})
 
 
 @method_decorator(login_required, name='get')
 class AccountPage(View):
     def get(self, request):
+        profile = Profile.objects.get(user=request.user)
         companies = Company.objects.filter(created_by=request.user).order_by('-id')[:5]
         products = Product.objects.filter(company__created_by=request.user).order_by('-id')[:5]
-        return render(request, 'account/index.html', {'companies': companies, 'products': products})
+        return render(request, 'account/page/index.html',
+                      {'companies': companies, 'products': products, 'profile': profile})
 
 
 @method_decorator(login_required, name='get')
